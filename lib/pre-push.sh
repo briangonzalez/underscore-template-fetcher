@@ -13,7 +13,7 @@ then
 
   RETVAL=$?
 
-  echo $RETVAL
+  echo $?
   echo "-------"
 
   if [ $RETVAL -ne 0 ]
