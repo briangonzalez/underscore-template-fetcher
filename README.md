@@ -1,5 +1,7 @@
 
-## Starting a new grunt project
+# grunt-starter
+
+### Starting a new grunt project
 
 Starting a new grunt starter project is simple.
 
@@ -11,5 +13,5 @@ git clone git@github.com:briangonzalez/grunt-starter.git
 npm install         
 ````
 
-## Pre Push Hook
+### Pre Push Hook
 This project comes preloaded with a git __pre-push__ hook which runs `grunt` prior to `git push`. This is useful to ensure your code is packaged before if makes it into the wild.
