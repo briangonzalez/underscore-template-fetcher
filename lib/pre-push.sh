@@ -19,5 +19,5 @@ then
   fi
 
   git add .
-  git stash pop -q
+  #git stash pop -q
 fi
