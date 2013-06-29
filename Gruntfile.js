@@ -7,12 +7,21 @@ module.exports = function(grunt) {
         separator: ';'
       },
       dist: {
-        src: ['src/partial/intro.js', 'src/my-lib.js', 'src/partial/outro.js'],
-        dest: 'dist/<%= pkg.name %>.js'
+        src: ['src/my-lib.js'],
+        dest: 'dist/<%= pkg.name %>.js',
+        options: {
+          banner: ";(function( window, undefined ){ \n 'use strict';",
+          footer: "}( window ));"
+        }
       },
       amd: {
-        src: ['src/partial/amd-intro.js', 'src/my-lib.js', 'src/partial/amd-outro.js'],
-        dest: 'dist/<%= pkg.name %>.module.js'
+        src: ['src/my-lib.js'],
+        dest: 'dist/<%= pkg.name %>.module.js',
+        options: {
+          banner: "define([], function () {",
+          footer: "return <%= returns %>;\n});",
+          returns: 'foo'
+        }
       }
     },
     uglify: {
@@ -46,14 +55,15 @@ module.exports = function(grunt) {
     }
   });
 
+  // Load all the NPM modules
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-qunit');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-concat');
 
+  // Register Tasks
   grunt.registerTask('test', ['jshint', 'qunit']);
-
   grunt.registerTask('default', ['jshint', 'qunit', 'concat', 'uglify']);
 
 };
