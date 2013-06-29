@@ -24,5 +24,10 @@ then
   git add .
   git stash pop -q
 
-  echo "Complete."
+  if [ $RETVAL -ne 0 ]
+    echo "Popped staged changes."
+  then
+    echo "Nothing to pop."
+  fi  
+
 fi
