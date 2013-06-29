@@ -3,7 +3,7 @@
 
 Starting a new grunt starter project is simple.
 
-````
+```shell
 # clone the repo
 git clone git@github.com:briangonzalez/grunt-starter.git   
 
