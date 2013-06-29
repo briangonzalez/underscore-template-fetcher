@@ -23,4 +23,6 @@ then
 
   git add .
   git stash pop -q
+
+  echo "Complete."
 fi
