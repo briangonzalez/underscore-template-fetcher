@@ -7,7 +7,7 @@ Starting a new grunt starter project is simple.
 # clone the repo
 git clone git@github.com:briangonzalez/grunt-starter.git   
 
-# install all dependencies define in package.json    
+# install all dependencies defined in package.json    
 npm install         
 ````
 
