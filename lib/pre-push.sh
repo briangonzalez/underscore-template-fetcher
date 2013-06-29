@@ -13,9 +13,6 @@ then
 
   RETVAL=$?
 
-  echo $?
-  echo "-------"
-
   if [ $RETVAL -ne 0 ]
   then
     exit 1
