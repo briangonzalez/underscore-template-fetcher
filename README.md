@@ -5,13 +5,13 @@
 underscore-template-fetcher is a small utility function built on top of [underscorejs](http://underscorejs.org). It adds to underscore another utility function, `_.fetchTemplate()`, which can be used like so:
 
 ```javascript
-
 // fetch a template then compile it
 _.fetchTemplate('my-awesome-template')
-
+var raw = _.fetchTemplate('my-awesome-template');
+var t   = _.template(raw, { text: 'woot' });
 ````
 
-### Some docs
+### Explained
 In essence, underscore-template-fetcher exposes the following two methods, a fetch method and config method: 
 
 ```javascript
@@ -33,7 +33,6 @@ This method assumes all of your templates live under `/templates/` and have a fi
 In certain apps, you may have templates located under various endpoints. Setup namepaces pointed at these endpoints like so:
 
 ```javascript
-
 // setup underscore-template-fetcher 
 _.templateFetcherSettings({
   namespaces: {
