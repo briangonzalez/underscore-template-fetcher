@@ -1,17 +1,59 @@
 
-# grunt-starter
+# underscore-template-fetcher
 
-### Starting a new grunt project
+### Usage
+underscore-template-fetcher is a small utility function built on top of [underscorejs](http://underscorejs.org). It adds to underscore another utility function, `_.fetchTemplate()`, which can be used like so:
 
-Starting a new grunt starter project is simple.
+```javascript
 
-```shell
-# clone the repo
-git clone git@github.com:briangonzalez/grunt-starter.git   
+// fetch a template then compile it
+_.fetchTemplate('my-awesome-template')
 
-# install all dependencies defined in package.json    
-npm install         
 ````
 
-### Pre Push Hook
-This project comes preloaded with a git __pre-push__ hook which runs `grunt` prior to `git push`. This is useful to ensure your code is packaged before if makes it into the wild.
+### Some docs
+In essence, underscore-template-fetcher exposes the following two methods, a fetch method and config method: 
+
+```javascript
+_.fetchTemplate(name [, namespace] [,extension] );
+
+// Valid opts include:
+//    {
+//      namespaces: { default: "/templates/" },
+//      extension:  ".jst"  
+//    }
+_.templateFetcherSettings(opts)
+````
+
+This method assumes all of your templates live under `/templates/` and have a file extension `.jst`
+
+### Advanced
+
+In certain apps, you may have templates located under various endpoints. Setup namepaces pointed at these endpoints like so:
+
+```javascript
+
+// setup underscore-template-fetcher 
+_.templateFetcherSettings({
+  namespaces: {
+    default:    '/my-templates/',
+    hovercard:  '/templates/hovercard/',
+    dialog:     '/plugins/dialogs/'
+  },
+  extension:  '.tmpl'
+});
+
+// fetch a template located at "/my-templates/awesome-template.tmpl"
+_.fetch('awesome-template')
+
+// fetch a template located at "/templates/hovercard/profile.tmpl"
+_.fetch('profile', 'hovercard')
+
+// fetch a template located at "/plugins/dialogs/confirm.jst"
+_.fetch('confirm', 'dialog', '.jst')
+
+```` 
+
+### Testing
+
+You can run the test suite by running "grunt server" then pointing your browser at [localhost:8000/test.html](localhost:8000/test.html).
