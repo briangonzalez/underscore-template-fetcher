@@ -63,5 +63,5 @@ Depends on underscore.js and jQuery.
 
 ### Testing
 
-You can run the test suite by running `grunt server` then pointing your browser at [localhost:8000/test.html](localhost:8000/test.html).
+You can run the test suite by running `grunt server` then pointing your browser at [localhost:8000/test.html](http://localhost:8000/test.html).
 
