@@ -1,10 +1,17 @@
 
 _.fetchTemplate = function(name, namespace, extension){
 
-  var settings      = _.templateFetcherSettings(); 
-  var path          = namespace ? settings.namespaces[namespace] : settings.namespaces.default;
-  var extension     = (typeof extension === 'undefined') ? settings.extension : extension;
-  var templatePath  = [path, name, extension].join('');
+  var templatePath;
+
+  if ( name.substring(0,1) === "/" ){
+    templatePath = name;
+  }
+  else{
+    var settings  = _.templateFetcherSettings(); 
+    var path      = namespace ? settings.namespaces[namespace] : settings.namespaces.default;
+    var extension = (typeof extension === 'undefined') ? settings.extension : extension;
+    templatePath  = [path, name, extension].join('');
+  }
 
   this.templateFetcherSettingsCache.cache = this.templateFetcherSettingsCache.cache || {};
   if ( templatePath in this.templateFetcherSettingsCache.cache )

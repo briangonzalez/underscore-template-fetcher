@@ -43,13 +43,17 @@ _.templateFetcherSettings({
 });
 
 // fetch a template located at "/my-templates/awesome-template.tmpl"
-_.fetch('awesome-template')
+_.fetchTemplate('awesome-template');
 
 // fetch a template located at "/templates/hovercard/profile.tmpl"
-_.fetch('profile', 'hovercard')
+_.fetchTemplate('profile', 'hovercard');
 
 // fetch a template located at "/plugins/dialogs/confirm.jst"
-_.fetch('confirm', 'dialog', '.jst')
+_.fetchTemplate('confirm', 'dialog', '.jst');
+
+// fetch a non-namespaced template located at "/super/random/location.jst"
+// (when prefixed with a "/", default namespaces and extensions are ignored)
+_.fetchTemplate('/super/random/location.jst');
 
 ```` 
 

@@ -42,6 +42,12 @@ $(document).ready(function(){
         "The following text will be strong: <strong>woot</strong>",
         t
       )
+
+    var raw = _.fetchTemplate("/templates/simple.jst")
+    equal(
+        "Test.",
+        raw
+      )
   });
 
   test( "Two templates, one ajax call", function() {
