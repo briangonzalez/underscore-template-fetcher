@@ -11,7 +11,7 @@ var t   = _.template(raw, { text: 'woot' });
 ````
 
 ### Explained
-In essence, underscore-template-fetcher exposes the following two methods, a fetch method and config method: 
+In essence, underscore-template-fetcher exposes the following two methods, a _fetch_ method and _config_ method: 
 
 ```javascript
 // Fetch a template
