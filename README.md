@@ -15,17 +15,18 @@ _.fetchTemplate('my-awesome-template')
 In essence, underscore-template-fetcher exposes the following two methods, a fetch method and config method: 
 
 ```javascript
+// Fetch a template
 _.fetchTemplate(name [, namespace] [,extension] );
 
-// Valid opts include:
-//    {
-//      namespaces: { default: "/templates/" },
-//      extension:  ".jst"  
-//    }
-_.templateFetcherSettings(opts)
+// Setup config for fetching templates. Valid opts include:
+var defaults =  {
+    namespaces: { default: "/templates/" },
+    extension:  ".jst"  
+  };
+_.templateFetcherSettings(defaults);
 ````
 
-This method assumes all of your templates live under `/templates/` and have a file extension `.jst`
+This method assumes all of your templates live under `/templates/` and have a file extension `.jst`. There is no need to call `_.templateFetcherSettings(defaults);` if you're happy with the defaults.
 
 ### Advanced
 
@@ -54,6 +55,11 @@ _.fetch('confirm', 'dialog', '.jst')
 
 ```` 
 
+### Dependencies
+
+Depends on underscore.js and jQuery.
+
 ### Testing
 
-You can run the test suite by running "grunt server" then pointing your browser at [localhost:8000/test.html](localhost:8000/test.html).
+You can run the test suite by running `grunt server` then pointing your browser at [localhost:8000/test.html](localhost:8000/test.html).
+
