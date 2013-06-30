@@ -6,7 +6,6 @@ underscore-template-fetcher is a small utility function built on top of [undersc
 
 ```javascript
 // fetch a template -- /templates/my-awesome-template.jst -- then compile it
-_.fetchTemplate('my-awesome-template')
 var raw = _.fetchTemplate('my-awesome-template');
 var t   = _.template(raw, { text: 'woot' });
 ````
