@@ -1,11 +1,6 @@
 
 $(document).ready(function(){
 
-  TOTAL_AJAX_COUNT = 0
-  $(document).ajaxStart(function() {
-    TOTAL_AJAX_COUNT ++;
-  });
-
   test( "Defaults as expected", function() {
     equal( '.jst',          _.templateFetcherSettings().extension );
     equal( '/templates/',   _.templateFetcherSettings().namespaces.default );
@@ -50,7 +45,7 @@ $(document).ready(function(){
       )
   });
 
-  test( "Two templates, one ajax call", function() {
+  test( "Template was cached", function() {
     _.templateFetcherSettings({ 
       namespaces: {
         default: '/templates/'
@@ -58,10 +53,10 @@ $(document).ready(function(){
       extension: '.jst' 
     });
     
-    var count = TOTAL_AJAX_COUNT;
-    _.fetchTemplate('one-request');
-    _.fetchTemplate('one-request');
-    equal(count + 1, TOTAL_AJAX_COUNT)
+    var path  = "/templates/one-request.jst"
+    var t     = _.fetchTemplate('one-request');
+
+    equal( t, _.templateFetcherSettings().cache[path] )
   });
 
   test( "Namespaced template", function() {
@@ -73,6 +68,7 @@ $(document).ready(function(){
     })
 
     var t = _.fetchTemplate('namespaced-template', 'superNested');
+    
     t     = _.template(t, { text: 'namespace' })
     equal("Hello, namespace!", t)
   });

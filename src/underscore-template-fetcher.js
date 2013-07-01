@@ -17,14 +17,12 @@ _.fetchTemplate = function(name, namespace, extension){
   if ( templatePath in this.templateFetcherSettingsCache.cache )
     return this.templateFetcherSettingsCache.cache[templatePath];
 
-  var t = ''; 
-  $.ajax({
-    url: templatePath,
-    async: false,
-    success: function(d){
-      t += d;
-    }
-  }) 
+  // AJAX request to get the template
+  var xmlHttp = null;
+  xmlHttp = new XMLHttpRequest();
+  xmlHttp.open( "GET", templatePath, false );
+  xmlHttp.send( null );
+  t = xmlHttp.responseText;
 
   this.templateFetcherSettingsCache.cache[templatePath] = t;
   return t;

@@ -35,10 +35,12 @@ module.exports = function(grunt) {
   grunt.registerTask('default', ['jshint', 'qunit']);
 
   // Server Task
-  grunt.registerTask('server', '', function (env) {
+  grunt.registerTask('serve', 'Serves any directory on given port', function (env) {
     var shell = require('shelljs');
-    console.log('Starting server on port 8000....')
-    shell.exec('cd test && python -m SimpleHTTPServer');
-  })
+    var port  = grunt.option('port') || 8000;
+    var dir   = grunt.option('dir')  || '.';
+    console.log(['Serving', dir,'on port:', port].join(' '))
+    shell.exec('cd '+ dir +' && python -m SimpleHTTPServer ' + port);
+  });
 
 };

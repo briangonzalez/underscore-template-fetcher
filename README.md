@@ -59,7 +59,7 @@ _.fetchTemplate('/super/random/location.jst');
 
 ### Dependencies
 
-Depends on underscore.js and jQuery.
+   - [underscore.js](http://underscorejs.org/).
 
 ### Testing
 
