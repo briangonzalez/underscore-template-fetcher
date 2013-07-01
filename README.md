@@ -1,4 +1,3 @@
-
 # underscore-template-fetcher
 
 ### Usage
@@ -56,10 +55,6 @@ _.fetchTemplate('confirm', 'dialog', '.jst');
 _.fetchTemplate('/super/random/location.jst');
 
 ```` 
-
-### Dependencies
-
-   The sole dependency is [underscore.js](http://underscorejs.org/).
 
 ### Testing
 
