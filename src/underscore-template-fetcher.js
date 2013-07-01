@@ -22,7 +22,7 @@ _.fetchTemplate = function(name, namespace, extension){
   xmlHttp = new XMLHttpRequest();
   xmlHttp.open( "GET", templatePath, false );
   xmlHttp.send( null );
-  t = xmlHttp.responseText;
+  var t = xmlHttp.responseText;
 
   this.templateFetcherSettingsCache.cache[templatePath] = t;
   return t;
